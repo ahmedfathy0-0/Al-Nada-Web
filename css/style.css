@@ -279,7 +279,7 @@
         height: 40px;
         display: inline-flex;
         align-items: center;
-        justify-content: center; /* Center the icon inside the button */
+        justify-content: left; /* Center the icon inside the button */
         background: #FFFFFF;
         border-radius: 40px;
         white-space: nowrap;
