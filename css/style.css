@@ -77,6 +77,17 @@
     font-weight: normal;
 }
 
+.btn.btn-sm.p-0 {
+    display: inline-flex; /* Aligns items in a row */
+    align-items: center; /* Centers items vertically */
+    justify-content: center; /* Centers content horizontally */
+    padding: 0.5rem 1rem; /* Adjust padding as needed */
+}
+
+.btn.btn-sm.p-0 .fas {
+    margin-right: 0.5rem; /* Adds space between the icon and the text */
+}
+
 
 /*** Navbar ***/
 .navbar .dropdown-toggle::after {
@@ -146,6 +157,249 @@
         transition: .5s;
         opacity: 1;
     }
+}
+
+.hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+
+/*** Card ***/
+
+
+.cat-item .cat-img img,
+.product-item .product-img img {
+  transition: .5s;
+}
+
+.cat-item:hover .cat-img img,
+.product-item:hover .product-img img {
+  transform: scale(1.2);
+}
+
+.product-item .btn:hover {
+  color: #D19C97 !important;
+}
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+
+
+
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Original shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* For hover effect */
+
+  
+}
+
+.card > hr {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.card > .list-group {
+  border-top: inherit;
+  border-bottom: inherit;
+}
+
+.card > .list-group:first-child {
+  border-top-width: 0;
+}
+
+.card > .list-group:last-child {
+  border-bottom-width: 0;
+}
+
+.card > .card-header + .list-group,
+.card > .list-group + .card-footer {
+  border-top: 0;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
+
+.card-title {
+  margin-bottom: 0.75rem;
+}
+
+.card-subtitle {
+  margin-top: -0.375rem;
+  margin-bottom: 0;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+}
+
+.card-link:hover {
+  text-decoration: none;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Elevate card on hover */
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2); /* Deeper shadow on hover */
+  }
+
+  .card-header .image-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates a 2x2 grid */
+    grid-gap: 4px; /* Adjust the gap between images */
+    width: 100%; /* Ensures the container fits the card header */
+    height: 100%; /* Adjust based on your preference */
+}
+
+.card-header .image-container img {
+    width: 100%; /* Ensures images fill their grid area */
+    height: auto; /* Keeps the aspect ratio of images */
+    object-fit: cover; /* Ensures images cover the grid area without distortion */
+}
+
+
+.card-link + .card-link {
+  margin-left: 1.25rem;
+}
+
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-footer {
+  padding: 0.75rem 1.25rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-header-tabs {
+  margin-right: -0.625rem;
+  margin-bottom: -0.75rem;
+  margin-left: -0.625rem;
+  border-bottom: 0;
+}
+
+.card-header-pills {
+  margin-right: -0.625rem;
+  margin-left: -0.625rem;
+}
+
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1.25rem;
+}
+
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.card-deck .card {
+  margin-bottom: 15px;
+}
+
+@media (min-width: 576px) {
+  .card-deck {
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .card-deck .card {
+    flex: 1 0 0%;
+    margin-right: 15px;
+    margin-bottom: 0;
+    margin-left: 15px;
+  }
+}
+
+.card-group > .card {
+  margin-bottom: 15px;
+}
+
+@media (min-width: 576px) {
+  .card-group {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .card-group > .card {
+    flex: 1 0 0%;
+    margin-bottom: 0;
+  }
+  .card-group > .card + .card {
+    margin-left: 0;
+    border-left: 0;
+  }
+}
+
+.card-columns .card {
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 576px) {
+  .card-columns {
+    column-count: 3;
+    column-gap: 1.25rem;
+    orphans: 1;
+    widows: 1;
+  }
+  .card-columns .card {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.accordion {
+  overflow-anchor: none;
+}
+
+.accordion > .card {
+  overflow: hidden;
+}
+
+.accordion > .card:not(:last-of-type) {
+  border-bottom: 0;
+}
+
+.accordion > .card > .card-header {
+  margin-bottom: -1px;
 }
 
 
@@ -357,6 +611,22 @@
 .team-item .team-social .btn:hover {
     color: #FFFFFF;
     background: var(--primary);
+}
+
+.team-item .overflow-hidden {
+    position: relative;
+}
+
+
+.team-item:hover .hover-content {
+    opacity: 1;
+}
+
+/* Additional styling for the button to make it more visible */
+.hover-content .btn {
+    border: 0.5px solid #fff; /* Add border to the button */
+    background-color: transparent; /* Transparent background */
+    color: #fff; /* White text color */
 }
 
 
