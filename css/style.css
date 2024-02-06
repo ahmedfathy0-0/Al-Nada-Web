@@ -334,6 +334,33 @@
 .card-deck .card {
   margin-bottom: 15px;
 }
+.card-fixed-size {
+    width: 350px; /* Increased width */
+    height: 550px; /* Increased height */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-fixed-size .card-header {
+    height: 80%; /* Adjust based on your design, keeps proportionate size for the image container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-fixed-size img {
+    width: 100%; /* Make image fill the width of the card-header */
+    height: 100%; /* Make image fill the height of the card-header */
+    object-fit: cover; /* Adjust as per your requirement, cover to fill area without distorting aspect ratio */
+}
+
+.card-fixed-size .card-body {
+    flex-grow: 1; /* Allows the body to expand and fill any remaining space */
+}
+
+.card-fixed-size .card-footer {
+    height: 60px; /* Slightly increased footer height */
+}
 
 @media (min-width: 576px) {
   .card-deck {
@@ -419,7 +446,7 @@
 
 .header-carousel .owl-nav {
     position: absolute;
-    width: 200px;
+    width: 300px;
     height: 45px;
     bottom: 30px;
     left: 50%;
@@ -441,6 +468,7 @@
     border-radius: 45px;
     font-size: 22px;
     transition: .5s;
+    margin: 0 10px; /* Increase distance */
 }
 
 .header-carousel .owl-nav .owl-prev:hover,
@@ -487,7 +515,19 @@
     background: var(--primary);
     border-color: var(--primary);
 }
+.header-carousel .owl-carousel-item {
+    height: 600px; /* Fixed height for all carousel items */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide the parts of the image that overflow */
+}
 
+.header-carousel .owl-carousel-item img {
+    width: 100%; /* Ensure the image covers the full width */
+    height: 100%; /* Ensure the image covers the full height */
+    object-fit: cover; /* Cover the space without stretching the image */
+}
 .page-header {
     background: url(../img/header-page.jpg) top center no-repeat;
     background-size: cover;
