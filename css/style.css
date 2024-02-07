@@ -587,6 +587,12 @@
 
 
 /*** Feature ***/
+.d-flex {
+    display: flex;
+    align-items: center; /* This ensures vertical alignment */
+    justify-content: start; /* Aligns items to the start of the container */
+}
+
 @media (min-width: 992px) {
     .container.feature {
         max-width: 100% !important;
@@ -608,14 +614,20 @@
         padding-left: calc(((100% - 1320px) / 2) + .75rem);
     }
 }
-@media (max-width: 991.98px) {
-    .feature-text {
-        padding-left: 1rem; /* Adjust this value as needed for smaller screens */
-        padding-right: 1rem; /* Ensure there's some padding on the right as well */
-    }
 
-    /* If necessary, adjust the .container.feature max-width or other properties for small screens */
+@media (max-width: 768px) {
+    .feature-text {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+    .d-flex {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center align items for a neat look */
+    }
+    .ms-4 {
+        margin-top: 10px; /* Add some space between the icon and text when stacked */
+    }
 }
+
 
 
 
