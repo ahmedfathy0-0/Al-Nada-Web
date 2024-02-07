@@ -589,6 +589,7 @@
 /*** Feature ***/
 
 
+
 @media (min-width: 992px) {
     .container.feature {
         max-width: 100% !important;
@@ -597,17 +598,27 @@
     .feature-text  {
         padding-left: calc(((100% - 960px) / 2) + .75rem);
     }
+    .ms-4 {
+        margin-top: 10px; /* Add some space between the icon and text when stacked */
+    }
 }
+
 
 @media (min-width: 1200px) {
     .feature-text  {
         padding-left: calc(((100% - 1140px) / 2) + .75rem);
+    }
+    .ms-4 {
+        margin-top: 10px; /* Add some space between the icon and text when stacked */
     }
 }
 
 @media (min-width: 1400px) {
     .feature-text  {
         padding-left: calc(((100% - 1320px) / 2) + .75rem);
+    }
+    .ms-4 {
+        margin-top: 10px; /* Add some space between the icon and text when stacked */
     }
 }
 
