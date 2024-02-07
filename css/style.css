@@ -608,6 +608,15 @@
         padding-left: calc(((100% - 1320px) / 2) + .75rem);
     }
 }
+@media (max-width: 991.98px) {
+    .feature-text {
+        padding-left: 1rem; /* Adjust this value as needed for smaller screens */
+        padding-right: 1rem; /* Ensure there's some padding on the right as well */
+    }
+
+    /* If necessary, adjust the .container.feature max-width or other properties for small screens */
+}
+
 
 
 /*** Team ***/
