@@ -9,7 +9,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
 
     // Process the form data here (e.g., email it, save it to a database, etc.)
     // For example, to email the form data (make sure to configure mail settings):
-    $to = 'ahmedfathi20044002@gmail.com'; // Change this to your own email address
+    $to = 'nada.scientific@yahoo.com'; // Change this to your own email address
     $body = "Name: $name\nEmail: $email\nSubject: $subject\nMessage: $message";
 
     if(mail($to, $subject, $body, "From: $email")) {
