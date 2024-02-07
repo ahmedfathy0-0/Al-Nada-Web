@@ -90,6 +90,12 @@
 
 
 /*** Navbar ***/
+/* Adjusting the navbar brand image to fit the navbar height */
+.navbar .navbar-brand img {
+    height: 100%; /* Make the image fill the height of its parent */
+    object-fit: cover; /* Ensures the aspect ratio is maintained while covering the area */
+}
+
 .navbar .dropdown-toggle::after {
     border: none;
     content: "\f107";
