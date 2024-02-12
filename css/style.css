@@ -3,6 +3,8 @@
     --primary: #0463FA;
     --light: #EFF5FF;
     --dark: #1B2C51;
+    --dark2: #1B2C51;
+
 }
 
 .fw-medium {
@@ -40,54 +42,81 @@
     opacity: 1;
 }
 
+/* General styling */
 
-/*** Button ***/
-.btn {
-    font-weight: 500;
-    transition: .5s;
+
+/* Style the dropdown container with a nicer look */
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-.btn.btn-primary,
-.btn.btn-secondary {
-    color: #FFFFFF;
+/* Style the button that opens the dropdown */
+.dropbtn {
+    background-color: #0463FA; /* Nice blue */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth background color transition */
 }
 
-.btn-square {
-    width: 38px;
-    height: 38px;
+/* Dropdown content (hidden by default), with added transitions for smooth effect */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; /* White background for the dropdown */
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Subtle shadow */
+    z-index: 1;
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Ensures the rounded corners are applied to child elements */
+    transition: opacity 0.3s, transform 0.3s; /* Smooth effects for showing the menu */
+    opacity: 0;
+    transform: translateY(-20px); /* Start slightly above to create a slide effect */
 }
 
-.btn-sm-square {
-    width: 32px;
-    height: 32px;
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #333333; /* Darker text color for better readability */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s; /* Smooth transition for hover effect */
 }
 
-.btn-lg-square {
-    width: 48px;
-    height: 48px;
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f2f2f2} /* Light grey background on hover */
+
+/* Show the dropdown menu on hover and focus within the dropdown for accessibility */
+.dropdown:hover .dropdown-content,
+.dropdown .dropdown-content:focus-within {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); /* Aligns dropdown directly below the button */
 }
 
-.btn-square,
-.btn-sm-square,
-.btn-lg-square {
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: normal;
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn,
+.dropdown .dropbtn:focus {
+    background-color: #093378; /* Slightly darker blue */
 }
 
-.btn.btn-sm.p-0 {
-    display: inline-flex; /* Aligns items in a row */
-    align-items: center; /* Centers items vertically */
-    justify-content: center; /* Centers content horizontally */
-    padding: 0.5rem 1rem; /* Adjust padding as needed */
+/* Ensure the drop button stays focused when the dropdown is interacted with */
+.dropbtn:focus {
+    outline: none; /* Removes the default focus outline */
 }
 
-.btn.btn-sm.p-0 .fas {
-    margin-right: 0.5rem; /* Adds space between the icon and the text */
+.arabic-text {
+    direction: rtl;
+    text-align: right;
 }
-
+.rtl {
+    direction: rtl;
+    text-align: right;
+}
 
 /*** Navbar ***/
 /* Adjusting the navbar brand image to fit the navbar height */
@@ -547,6 +576,9 @@
 .breadcrumb-item + .breadcrumb-item::before {
     color: var(--light);
 }
+.dark-text {
+    color: #000000; /* Or any dark color */
+}
 
 
 /*** Service ***/
@@ -661,7 +693,7 @@
 
 .team-item .team-text {
     position: relative;
-    height: 100px;
+    height: 120px;
     transition: .5s;
 }
 
