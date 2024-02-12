@@ -62,7 +62,12 @@
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s; /* Smooth background color transition */
 }
-
+@media (max-width: 768px) {
+    .dropbtn {
+      font-size: 12px; /* Smaller font size for mobile */
+      padding: 5px 10px; /* Smaller padding for mobile */
+    }
+  }
 /* Dropdown content (hidden by default), with added transitions for smooth effect */
 .dropdown-content {
     display: none;
