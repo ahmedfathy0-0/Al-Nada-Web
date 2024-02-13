@@ -13,8 +13,13 @@
 
 .fw-bold {
     font-weight: 700 !important;
+
 }
 
+.justify-text {
+    text-align: justify;
+  }
+  
 .fw-black {
     font-weight: 900 !important;
 }
@@ -27,7 +32,7 @@
     z-index: 99;
 }
 
-
+  
 /*** Spinner ***/
 #spinner {
     opacity: 0;
