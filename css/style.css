@@ -63,34 +63,7 @@
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s; /* Smooth background color transition */
 }
-@media (max-width: 768px) {
-    .dropbtn {
-      font-size: 12px; /* Smaller font size for mobile */
-      padding: 5px 10px; /* Smaller padding for mobile */
-    }
-    .navbar .dropdown {
-        margin-right: 0; /* Adjust based on your design */
-        margin-left: 0; /* Reset for mobile view if necessary */
-    }
-    .navbar .dropdown button {
-        padding: 10px;
-        margin: 10px 0; /* Example values, adjust as needed */
-    }
-  }
-  @media (max-width: 991.98px) {
-    .dropbtn {
-        font-size: 12px; /* Smaller font size for mobile */
-        padding: 5px 10px; /* Smaller padding for mobile */
-      }
-      .navbar .dropdown {
-          margin-right: 0; /* Adjust based on your design */
-          margin-left: 0; /* Reset for mobile view if necessary */
-      }
-      .navbar .dropdown button {
-          padding: 10px;
-          margin: 10px 0; /* Example values, adjust as needed */
-      }
-}
+
 /* Dropdown content (hidden by default), with added transitions for smooth effect */
 .dropdown-content {
     display: none;
@@ -147,6 +120,15 @@
 }
 
 /*** Navbar ***/
+/* Ensure the navbar items are flexibly laid out */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
 /* Adjusting the navbar brand image to fit the navbar height */
 .navbar .navbar-brand img {
     height: 100%; /* Make the image fill the height of its parent */
@@ -243,7 +225,22 @@
     transition: opacity 0.3s ease;
 }
 
+/* Adjust the dropdown button size and positioning for mobile */
+@media (max-width: 768px) {
+    .dropdown {
+        order:2; /* Ensures the dropdown is positioned after the toggler */
+        font-size: 12px; /* Smaller font size for mobile */
+     padding: 5px 10px; /* Smaller padding for mobile */
+    }
 
+    .navbar-toggler {
+        order: 3; /* Ensures toggler is in the middle */
+    }
+
+    .navbar-brand {
+        order: 1; /* Logo comes first */
+    }
+}
 
 /*** Card ***/
 
