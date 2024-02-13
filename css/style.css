@@ -49,6 +49,7 @@
 .dropdown {
     position: relative;
     display: inline-block;
+    margin-left: auto;
 }
 
 /* Style the button that opens the dropdown */
@@ -67,7 +68,29 @@
       font-size: 12px; /* Smaller font size for mobile */
       padding: 5px 10px; /* Smaller padding for mobile */
     }
+    .navbar .dropdown {
+        margin-right: 0; /* Adjust based on your design */
+        margin-left: 0; /* Reset for mobile view if necessary */
+    }
+    .navbar .dropdown button {
+        padding: 10px;
+        margin: 10px 0; /* Example values, adjust as needed */
+    }
   }
+  @media (max-width: 991.98px) {
+    .dropbtn {
+        font-size: 12px; /* Smaller font size for mobile */
+        padding: 5px 10px; /* Smaller padding for mobile */
+      }
+      .navbar .dropdown {
+          margin-right: 0; /* Adjust based on your design */
+          margin-left: 0; /* Reset for mobile view if necessary */
+      }
+      .navbar .dropdown button {
+          padding: 10px;
+          margin: 10px 0; /* Example values, adjust as needed */
+      }
+}
 /* Dropdown content (hidden by default), with added transitions for smooth effect */
 .dropdown-content {
     display: none;
