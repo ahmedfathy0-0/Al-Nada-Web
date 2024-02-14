@@ -25,19 +25,7 @@
     z-index: 9999; /* Ensure it stays above everything */
 
   }
-  .theme-text.d-flex {
-    display: flex; /* Reinforce flex display */
-    flex-wrap: nowrap; /* Prevent wrapping */
-    justify-content: start; /* Align items to the start */
-    gap: 10px; /* Create some space between buttons */
-}
-
-@media (max-width: 768px) {
-  .theme-text.d-flex a {
-    margin: 2px; /* Adjust margin for smaller screens if necessary */
-  }
-}
-
+  
   .theme-container:hover {
     opacity: 0.8;
   }
@@ -1245,4 +1233,26 @@ body.dark-mode .card {
   
 .bg-dark-mode-primary {
     background-color: #071a6f; /* Example dark mode primary color */
+}
+/* Custom CSS to ensure flex layout for social buttons */
+.d-flex.pt-2 {
+    display: flex !important; /* Ensure display flex */
+    flex-wrap: nowrap !important; /* Prevent wrapping to new line */
+    justify-content: start; /* Align items at the start of the container */
+    align-items: center; /* Center items vertically */
+}
+
+.d-flex.pt-2 a {
+    margin-right: 10px; /* Add space between buttons */
+}
+
+/* Adjust the margin for the last button to remove extra space on the right */
+.d-flex.pt-2 a:last-child {
+    margin-right: 0;
+}
+
+@media (max-width: 768px) {
+    .d-flex.pt-2 a {
+        margin-right: 5px; /* Adjust space between buttons for smaller screens */
+    }
 }
