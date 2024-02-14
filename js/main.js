@@ -33,7 +33,7 @@ function setTheme() {
 
 function setLight() {
   // Update the CSS variable for light mode
-  document.documentElement.style.setProperty('--text-color-light-mode', '#000'); // Revert to light mode text color
+  document.documentElement.style.setProperty('--text-color-light-mode', '#071a6f'); // Revert to light mode text color
 
 
   root.style.setProperty("--bs-dark", "linear-gradient(318.32deg, #c3d1e4 0%, #dde7f3 55%, #d4e0ed 100%)");
