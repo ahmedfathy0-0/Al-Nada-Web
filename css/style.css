@@ -1240,6 +1240,9 @@ body.dark-mode .card {
     flex-wrap: nowrap !important; /* Prevent wrapping to new line */
     justify-content: start; /* Align items at the start of the container */
     align-items: center; /* Center items vertically */
+    flex-direction: row !important; /* Ensure flex items are in a row */
+
+    
 }
 
 .d-flex.pt-2 a {
