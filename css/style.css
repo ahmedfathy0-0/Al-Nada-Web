@@ -25,7 +25,19 @@
     z-index: 9999; /* Ensure it stays above everything */
 
   }
-  
+  .theme-text.d-flex {
+    display: flex; /* Reinforce flex display */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: start; /* Align items to the start */
+    gap: 10px; /* Create some space between buttons */
+}
+
+@media (max-width: 768px) {
+  .theme-text.d-flex a {
+    margin: 2px; /* Adjust margin for smaller screens if necessary */
+  }
+}
+
   .theme-container:hover {
     opacity: 0.8;
   }
