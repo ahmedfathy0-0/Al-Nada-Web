@@ -7824,7 +7824,9 @@ textarea.form-control-lg {
 .bg-primary {
     background-color: #0463FA !important
 }
-
+.bg-dark-mode-primary {
+    background-color: #071a6f !important
+}
 .bg-secondary {
     background-color: #6c757d !important
 }
