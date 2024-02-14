@@ -4,8 +4,63 @@
     --light: #EFF5FF;
     --dark: #1B2C51;
     --dark2: #1B2C51;
+    --bs-dark: #212529;
+    --dark-mode-primary: #071a6f;
+    --light-primary: #89ABE3FF; /* Lighter primary color for dark mode */
+    --text-color-light-mode: #000; /* Black for light mode */
+    --text-color-dark-mode: #fff; /* White for dark mode */
 
 }
+.theme-container {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Changed from right to left */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    z-index: 9999; /* Ensure it stays above everything */
+
+  }
+  
+  .theme-container:hover {
+    opacity: 0.8;
+  }
+  
+  .theme-text {
+    color: var(--text-color-light-mode); /* Default to light mode */
+  }
+  .shadow-dark {
+    background: linear-gradient(145deg, #23282c, #1e2125);
+    box-shadow: 17px 17px 23px #1a1d20,
+      -17px -17px 23px #282d32, inset 5px 5px 4px #1e2226,
+      inset -5px -5px 4px #24282c;
+  }
+  
+  .shadow-light {
+    box-shadow: 7px 7px 15px -10px #bbcfda, -4px -4px 13px #ffffff,
+      inset 7px 7px 3px rgba(209, 217, 230, 0.35),
+      inset -11px -11px 3px rgba(255, 255, 255, 0.3)
+  }
+  
+  @keyframes change {
+    0% {
+      transform: scale(1);
+    }
+  
+    100% {
+      transform: scale(1.4);
+    }
+  }
+  
+  .change {
+    animation-name: change;
+    animation-duration: 1s;
+    animation-direction: alternate;
+  }
 
 .fw-medium {
     font-weight: 500 !important;
@@ -32,7 +87,8 @@
     z-index: 99;
 }
 
-  
+ 
+
 /*** Spinner ***/
 #spinner {
     opacity: 0;
@@ -480,6 +536,7 @@
 
 
 /*** Header ***/
+
 .header-carousel .owl-carousel-text {
     position: absolute;
     width: 100%;
@@ -595,8 +652,24 @@
 .service-item {
     transition: .5s;
     position: relative; /* Ensure this is here if not already */
-}
+    width: 100%; /* Ensure the image covers the full width */
+    height: 100%; /* Ensure the image covers the full height */
+    object-fit: cover; /* Cover the area without stretching */
+    padding: 1.25rem; /* Adjust as needed */
+    border-radius: 15px; /* Ensure consistency */
 
+}
+.service-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px; /* Match parent's border-radius */
+    z-index: 0;
+}
     .service-item:hover {
         margin-top: -10px;
         box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .08);
@@ -695,7 +768,11 @@
     position: relative;
     top: 0;
     transition: .5s;
+    width: 100%; /* Ensure the image covers the full width */
+    height: 100%; /* Ensure the image covers the full height */
+    object-fit: cover; /* Cover the area without stretching */
 }
+
 
 .team-item:hover img {
     top: -30px;
@@ -926,4 +1003,203 @@
 
 .footer .copyright a:hover {
     color: var(--primary);
+}
+
+
+
+
+
+/* Dark mode styles */
+
+
+
+
+
+.dark-mode {
+    
+    background-color: #363537;
+    color: #4E9CAF;
+  }
+  
+  /* You might want to define dark-mode specific colors for other elements */
+  .dark-mode a {
+    color: #4E9CAF;
+  }
+
+body.dark-mode {
+    /* Define dark mode specific colors */
+    --bg-color: #333; /* Dark background color */
+    --text-color: #f2f2f2; /* Light text color */
+    --navbar-bg-color: #222; /* Darker background for the navbar */
+    --dropdown-bg-color: #071a6f; /* Dark background for dropdown */
+    --dropdown-hover-bg-color: #555; /* Slightly lighter bg color for dropdown items on hover */
+}
+/* Dark Mode specific styles */
+body.dark-mode .team-item .team-text {
+    background-color: #333; /* Dark mode background */
+    color: #fff; /* Dark mode text color */
+}
+
+body.dark-mode .text-primary {
+    color: var(--light-primary); /* Adjusted primary color for dark mode */
+}
+/* Dark Mode Adjustments */
+
+body.dark-mode .header-carousel .owl-nav .owl-prev,
+body.dark-mode .header-carousel .owl-nav .owl-next {
+    color: #FFFFFF; /* Adjust if you want a different color in dark mode */
+    border: 1px solid #FFFFFF; /* Adjust border color for visibility in dark mode */
+}
+
+body.dark-mode .header-carousel .owl-nav .owl-prev:hover,
+body.dark-mode .header-carousel .owl-nav .owl-next:hover {
+    background: #333; /* Darker background for hover state */
+    border-color: #333; /* Matching border color */
+}
+
+body.dark-mode .header-carousel .owl-dot {
+    border: 1px solid #FFFFFF; /* Make dots visible in dark mode */
+}
+
+body.dark-mode .header-carousel .owl-dot::after {
+    background: #FFFFFF; /* Adjust dot color for visibility */
+}
+
+body.dark-mode .header-carousel .owl-dot.active {
+    background: #666; /* Dark mode active dot color */
+    border-color: #666; /* Matching border color */
+}
+
+
+/* Additional dark mode styles for other header elements */
+body.dark-mode .container-fluid.header {
+    background-color: #071a6f; /* Darker background for the header */
+    color: #ddd; /* Lighter text for better readability */
+}
+
+
+
+/* If you have specific links or text in the header that need color adjustments */
+body.dark-mode .header a, 
+body.dark-mode .header .dark-text {
+    color: #ccc; /* Lighter color for text links in the header */
+}
+
+/* Ensure you replace `path-to-your-dark-mode-header-background.jpg` with the actual path to your dark mode background image */
+
+.dark-mode .container-fluid {
+    background-color: #363537;
+    color: #f2f2f2;
+}
+
+.dark-mode .btn-sm-square {
+    background-color: #4E9CAF; /* Adjust the color to fit dark mode */
+    color: #363537; /* Adjust text/icon color */
+}
+
+body.dark-mode .dropbtn {
+    background-color: #071a6f; /* New color for dark mode */
+  }
+  
+  body.dark-mode .btn-primary {
+    background-color: #071a6f; /* Example: changing to a darker background */
+    border-color: #222; /* Adjust accordingly */
+    color: #fff; /* Adjust text color for visibility */
+  }
+
+body.dark-mode .navbar,
+body.dark-mode .navbar-light {
+    background-color: var(--navbar-bg-color) !important; /* Override with !important if necessary */
+    color: var(--text-color);
+}
+
+body.dark-mode .navbar,
+body.dark-mode .dropbtn {
+    background-color: var(--navbar-bg-color);
+    color: var(--text-color);
+}
+
+body.dark-mode .dropdown-content {
+    background-color: var(--dropdown-bg-color);
+}
+
+body.dark-mode .dropdown-content a {
+    color: var(--text-color);
+}
+
+body.dark-mode .dropdown-content a:hover {
+    background-color: var(--dropdown-hover-bg-color);
+}
+
+body.dark-mode .navbar .navbar-nav .nav-link {
+    color: var(--text-color);
+}
+body.dark-mode .card {
+    background-color: #333; /* Dark background for cards */
+    border: 1px solid rgba(255, 255, 255, 0.125); /* Lighter border */
+    color: #fff; /* Light text color */
+    box-shadow: 0 4px 6px rgba(255,255,255,0.1); /* Custom shadow for dark mode */
+  }
+  
+  body.dark-mode .card-header,
+  body.dark-mode .card-footer {
+    background-color: rgba(255, 255, 255, 0.03); /* Lighter background for headers and footers */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.125); /* Adjusted border color */
+  }
+  
+  body.dark-mode .card:hover {
+    box-shadow: 0 10px 15px rgba(255,255,255,0.2); /* Enhanced shadow on hover for better visibility */
+  }
+  
+  /* Adjusting button hover state in dark mode */
+  body.dark-mode .product-item .btn:hover {
+    color: #ff6e40 !important; /* A different hover color for better visibility */
+  }
+  
+  /* Ensuring text truncation remains visible */
+  body.dark-mode .text-truncate {
+      color: #CCC; /* Lighter text color for readability */
+  }
+  
+  /* If there are specific adjustments needed for images on hover within dark mode */
+  body.dark-mode .cat-item:hover .cat-img img,
+  body.dark-mode .product-item:hover .product-img img {
+    transform: scale(1.2); /* Keeping the scale effect */
+    /* Optionally, add a filter if the images need adjustment in dark mode */
+    filter: brightness(0.8);
+  }
+  
+  /* Ensuring other elements like card links, titles, and text are also styled appropriately */
+  body.dark-mode .card-link, 
+  body.dark-mode .card-title, 
+  body.dark-mode .card-text {
+      color: #E0E0E0; /* Ensuring readability */
+  }
+  
+  .image-container {
+    display: grid; /* Use grid layout for better control */
+    grid-template-columns: 1fr; /* Single column layout */
+    grid-template-rows: auto 1fr; /* Auto for the first row, 1fr for the second */
+    gap: 10px; /* Adjust based on your spacing needs */
+    width: 100%; /* Ensure the container fills its parent */
+    position: relative; /* For absolute positioning of the second image if needed */
+}
+
+.image-container img {
+    width: 100%; /* Ensure images take full width of their container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area of the grid item, can be adjusted if needed */
+}
+
+.image-container .second-image {
+    grid-row: 1 / -1; /* Span from the first to the last row */
+    z-index: 1; /* Ensure it's above the first image if overlapping is desired */
+    opacity: 0.9; /* Optional: Adjust for visual effect if overlapping */
+}
+
+  /* Additional styles can be added here, following the same pattern, 
+     to ensure all elements adapt to dark mode as intended. */
+  
+.bg-dark-mode-primary {
+    background-color: #071a6f; /* Example dark mode primary color */
 }
