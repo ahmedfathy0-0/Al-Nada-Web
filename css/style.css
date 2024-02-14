@@ -7,7 +7,7 @@
     --bs-dark: #212529;
     --dark-mode-primary: #071a6f;
     --light-primary: #89ABE3FF; /* Lighter primary color for dark mode */
-    --text-color-light-mode: #000; /* Black for light mode */
+    --text-color-light-mode: #071a6f; /* Black for light mode */
     --text-color-dark-mode: #fff; /* White for dark mode */
 
 }
@@ -956,8 +956,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--light);
-    border: 1px solid #FFFFFF;
+    color: var(--primary);
+    border: 1px solid #071a6f;
     transition: .3s;
 }
 
@@ -970,7 +970,7 @@
     margin-bottom: 5px;
     padding: 0;
     text-align: left;
-    color: #FFFFFF;
+    color: #071a6f;
     font-size: 15px;
     font-weight: normal;
     text-transform: capitalize;
@@ -998,12 +998,27 @@
 }
 
 .footer .copyright a {
-    color: var(--light);
+    color: #071a6f;
 }
 
 .footer .copyright a:hover {
     color: var(--primary);
 }
+@media (max-width: 768px) {
+    .footer h5 {
+      font-size: 16px;
+    }
+    .footer .btn-link {
+      font-size: 14px;
+    }
+    .footer p {
+      font-size: 14px;
+    }
+    .footer .btn-social {
+      margin: 0 2px; /* Reduce space between buttons */
+    }
+  }
+  
 
 
 
@@ -1168,14 +1183,31 @@ body.dark-mode .card {
     /* Optionally, add a filter if the images need adjustment in dark mode */
     filter: brightness(0.8);
   }
-  
   /* Ensuring other elements like card links, titles, and text are also styled appropriately */
   body.dark-mode .card-link, 
   body.dark-mode .card-title, 
   body.dark-mode .card-text {
       color: #E0E0E0; /* Ensuring readability */
   }
-  
+  body.dark-mode  .footer .btn.btn-link {
+        display: block;
+        margin-bottom: 5px;
+        padding: 0;
+        text-align: left;
+        color: #FFFFFF;
+        font-size: 15px;
+        font-weight: normal;
+        text-transform: capitalize;
+        transition: .3s;
+    }
+    body.dark-mode .footer .btn.btn-social {
+        color: var(--light);
+        border: 1px solid #FFFFFF;
+    }
+    body.dark-mode .footer .copyright a {
+        color: var(--light);
+    }
+
   .image-container {
     display: grid; /* Use grid layout for better control */
     grid-template-columns: 1fr; /* Single column layout */
