@@ -11,6 +11,41 @@
     --text-color-dark-mode: #fff; /* White for dark mode */
 
 }
+div.d-flex.pt-2 {
+    display: flex !important;
+    flex-direction: row !important; /* Ensure horizontal layout */
+    justify-content: flex-start !important; /* Align items to the start */
+    align-items: center !important; /* Center items vertically */
+    flex-wrap: nowrap !important; /* Prevent wrapping to a new line */
+    width: 100%; /* Ensure full width */
+}
+div.d-flex.pt-2 a {
+    margin-right: 8px; /* Adjust based on your preference */
+}
+div.d-flex.pt-2 a:last-child {
+    margin-right: 0 !important;
+}
+.image-container {
+    display: grid; /* Use grid layout for better control */
+    grid-template-columns: 1fr; /* Single column layout */
+    grid-template-rows: auto 1fr; /* Auto for the first row, 1fr for the second */
+    gap: 10px; /* Adjust based on your spacing needs */
+    width: 100%; /* Ensure the container fills its parent */
+    position: relative; /* For absolute positioning of the second image if needed */
+}
+
+.image-container img {
+    width: 100%; /* Ensure images take full width of their container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area of the grid item, can be adjusted if needed */
+}
+
+.image-container .second-image {
+    grid-row: 1 / -1; /* Span from the first to the last row */
+    z-index: 1; /* Ensure it's above the first image if overlapping is desired */
+    opacity: 0.9; /* Optional: Adjust for visual effect if overlapping */
+}
+
 .theme-container {
     width: 70px;
     height: 70px;
@@ -759,10 +794,6 @@
         margin-top: 10px; /* Add some space between the icon and text when stacked */
     }
 }
-
-
-
-
 /*** Team ***/
 .team-item img {
     position: relative;
@@ -853,8 +884,6 @@
 .bootstrap-datetimepicker-widget table td.today::before {
     border-bottom-color: var(--primary);
 }
-
-
 /*** Testimonial ***/
 .testimonial-carousel::before {
     position: absolute;
@@ -976,7 +1005,6 @@
     text-transform: capitalize;
     transition: .3s;
 }
-
 .footer .btn.btn-link::before {
     position: relative;
     content: "\f105";
@@ -984,7 +1012,6 @@
     font-weight: 900;
     margin-right: 10px;
 }
-
 .footer .btn.btn-link:hover {
     color: var(--primary);
     letter-spacing: 1px;
@@ -1019,15 +1046,7 @@
   }
   
 
-
-
-
-
 /* Dark mode styles */
-
-
-
-
 
 .dark-mode {
     
@@ -1039,6 +1058,20 @@
   .dark-mode a {
     color: #4E9CAF;
   }
+
+
+  body.dark-mode  .footer .btn.btn-link {
+        
+    color: #FFFFFF;
+    
+}
+body.dark-mode .footer .btn.btn-social {
+    color: var(--light);
+    border: 1px solid #FFFFFF;
+}
+body.dark-mode .footer .copyright a {
+    color: var(--light);
+}
 
 body.dark-mode {
     /* Define dark mode specific colors */
@@ -1090,17 +1123,10 @@ body.dark-mode .container-fluid.header {
     background-color: #071a6f; /* Darker background for the header */
     color: #ddd; /* Lighter text for better readability */
 }
-
-
-
-/* If you have specific links or text in the header that need color adjustments */
 body.dark-mode .header a, 
 body.dark-mode .header .dark-text {
     color: #ccc; /* Lighter color for text links in the header */
 }
-
-/* Ensure you replace `path-to-your-dark-mode-header-background.jpg` with the actual path to your dark mode background image */
-
 .dark-mode .container-fluid {
     background-color: #363537;
     color: #f2f2f2;
@@ -1155,79 +1181,39 @@ body.dark-mode .card {
     box-shadow: 0 4px 6px rgba(255,255,255,0.1); /* Custom shadow for dark mode */
   }
   
-  body.dark-mode .card-header,
-  body.dark-mode .card-footer {
+body.dark-mode .card-header,
+body.dark-mode .card-footer {
     background-color: rgba(255, 255, 255, 0.03); /* Lighter background for headers and footers */
     border-bottom: 1px solid rgba(255, 255, 255, 0.125); /* Adjusted border color */
   }
   
-  body.dark-mode .card:hover {
+body.dark-mode .card:hover {
     box-shadow: 0 10px 15px rgba(255,255,255,0.2); /* Enhanced shadow on hover for better visibility */
   }
   
   /* Adjusting button hover state in dark mode */
-  body.dark-mode .product-item .btn:hover {
+body.dark-mode .product-item .btn:hover {
     color: #ff6e40 !important; /* A different hover color for better visibility */
   }
   
   /* Ensuring text truncation remains visible */
-  body.dark-mode .text-truncate {
+body.dark-mode .text-truncate {
       color: #CCC; /* Lighter text color for readability */
   }
   
   /* If there are specific adjustments needed for images on hover within dark mode */
-  body.dark-mode .cat-item:hover .cat-img img,
-  body.dark-mode .product-item:hover .product-img img {
+body.dark-mode .cat-item:hover .cat-img img,
+body.dark-mode .product-item:hover .product-img img {
     transform: scale(1.2); /* Keeping the scale effect */
     /* Optionally, add a filter if the images need adjustment in dark mode */
     filter: brightness(0.8);
   }
   /* Ensuring other elements like card links, titles, and text are also styled appropriately */
-  body.dark-mode .card-link, 
-  body.dark-mode .card-title, 
-  body.dark-mode .card-text {
+body.dark-mode .card-link, 
+body.dark-mode .card-title, 
+body.dark-mode .card-text {
       color: #E0E0E0; /* Ensuring readability */
   }
-  body.dark-mode  .footer .btn.btn-link {
-        display: block;
-        margin-bottom: 5px;
-        padding: 0;
-        text-align: left;
-        color: #FFFFFF;
-        font-size: 15px;
-        font-weight: normal;
-        text-transform: capitalize;
-        transition: .3s;
-    }
-    body.dark-mode .footer .btn.btn-social {
-        color: var(--light);
-        border: 1px solid #FFFFFF;
-    }
-    body.dark-mode .footer .copyright a {
-        color: var(--light);
-    }
-
-  .image-container {
-    display: grid; /* Use grid layout for better control */
-    grid-template-columns: 1fr; /* Single column layout */
-    grid-template-rows: auto 1fr; /* Auto for the first row, 1fr for the second */
-    gap: 10px; /* Adjust based on your spacing needs */
-    width: 100%; /* Ensure the container fills its parent */
-    position: relative; /* For absolute positioning of the second image if needed */
-}
-
-.image-container img {
-    width: 100%; /* Ensure images take full width of their container */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Cover the area of the grid item, can be adjusted if needed */
-}
-
-.image-container .second-image {
-    grid-row: 1 / -1; /* Span from the first to the last row */
-    z-index: 1; /* Ensure it's above the first image if overlapping is desired */
-    opacity: 0.9; /* Optional: Adjust for visual effect if overlapping */
-}
-
   /* Additional styles can be added here, following the same pattern, 
      to ensure all elements adapt to dark mode as intended. */
   
@@ -1235,21 +1221,4 @@ body.dark-mode .card {
     background-color: #071a6f; /* Example dark mode primary color */
 }
 /* Reinforce Flex Display for Social Buttons */
-div.d-flex.pt-2 {
-    display: flex !important;
-    flex-direction: row !important; /* Ensure horizontal layout */
-    justify-content: flex-start !important; /* Align items to the start */
-    align-items: center !important; /* Center items vertically */
-    flex-wrap: nowrap !important; /* Prevent wrapping to a new line */
-    width: 100%; /* Ensure full width */
-}
 
-/* Adjust spacing between buttons */
-div.d-flex.pt-2 a {
-    margin-right: 8px; /* Adjust based on your preference */
-}
-
-/* Ensure the last item doesn't have extra margin on the right */
-div.d-flex.pt-2 a:last-child {
-    margin-right: 0 !important;
-}
