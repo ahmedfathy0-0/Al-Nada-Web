@@ -61,7 +61,7 @@ function setLight() {
   });
 
   const logoImage = document.querySelector('.logo'); // Ensure the class 'logo' matches your HTML
-  logoImage.src = 'img/alnada.png'; // Path to light mode logo image
+  logoImage.src = '../img/alnada.png'; // Path to light mode logo image
   setTimeout(() => {
     container.classList.add("shadow-light");
     // Change the icon to the sun if it's not already set
@@ -116,7 +116,7 @@ function setDark() {
   });
 
   const logoImage = document.querySelector('.logo'); // Ensure the class 'logo' matches your HTML
-  logoImage.src = '../img/LOGOs/alnadadr.png'; // Path to dark mode logo image
+  logoImage.src = '../img/alnadadr.png'; // Path to dark mode logo image
   setTimeout(() => {
     container.classList.add("shadow-dark");
     // Change the icon to the moon
