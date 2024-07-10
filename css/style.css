@@ -9,7 +9,8 @@
     --light-primary: #89ABE3FF; /* Lighter primary color for dark mode */
     --text-color-light-mode: #071a6f; /* Black for light mode */
     --text-color-dark-mode: #fff; /* White for dark mode */
-
+    --red: tomato;
+    --bgColor: bisque;
 }
 div.d-flex.pt-2 {
     display: flex !important;
@@ -1222,3 +1223,28 @@ body.dark-mode .card-text {
 }
 /* Reinforce Flex Display for Social Buttons */
 
+/*image frame for articles*/
+
+  
+  img.framed {
+    box-shadow:
+      -50px -50px 0 -40px var(--primary),
+      50px 50px 0 -40px var(--primary);
+
+    max-width: 300px;
+    height: auto;
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+  .english-section img.framed {
+    float: right;
+ }
+.arabic-section {
+    direction: rtl;
+    text-align: right;
+}
+.arabic-section img.framed {
+    float: left;
+}
+  
+  
