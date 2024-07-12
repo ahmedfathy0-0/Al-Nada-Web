@@ -48,6 +48,10 @@ function setLight() {
   h1Elements.forEach(function(h1) {
        h1.style.color = ''; // Remove the inline style to revert to default
   });
+  const h2Elements = document.querySelectorAll('h2');
+  h2Elements.forEach(function(h2) {
+       h2.style.color = ''; // Remove the inline style to revert to default
+  });
   const h5Elements = document.querySelectorAll('h5');
   h5Elements.forEach(function(h5) {
        h5.style.color = ''; // Remove the inline style to revert to default
@@ -82,7 +86,6 @@ function setLight() {
 }
 
 function setDark() {
-  // Update the CSS variable for dark mode
 
   document.documentElement.style.setProperty('--text-color-light-mode', '#fff'); // Use dark mode text color
 
@@ -96,11 +99,12 @@ function setDark() {
   containerFluid.classList.add('bg-dark'); // Ensure you have a bg-dark class defined or adjust styles directly
   const h1Elements = document.querySelectorAll('h1');
   h1Elements.forEach(function(h1) {
-      // If you're using a class to change the text color
-      //h1.classList.add('text-dark-mode');
-      
-      // Or directly changing the style
+
        h1.style.color = '#EFF5FF'; // Example light color for dark mode
+  });
+  const h2Elements = document.querySelectorAll('h2');
+  h2Elements.forEach(function(h2) {
+       h2.style.color = '#EFF5FF'; // Example light color for dark mode
   });
   const h5Elements = document.querySelectorAll('h5');
   h5Elements.forEach(function(h5) {
