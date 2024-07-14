@@ -56,6 +56,10 @@ function setLight() {
   h5Elements.forEach(function(h5) {
        h5.style.color = ''; // Remove the inline style to revert to default
   });
+  const h3Elements = document.querySelectorAll('h3');
+  h3Elements.forEach(function(h3) {
+       h3.style.color = ''; // Remove the inline style to revert to default
+  });
   const containerFluids = document.querySelectorAll('.container-fluid');
   containerFluids.forEach(function(container) {
       if (container.classList.contains('bg-dark-mode-primary')) {
@@ -65,8 +69,13 @@ function setLight() {
   });
 
   const logoImage = document.querySelector('.logo'); // Ensure the class 'logo' matches your HTML
-  logoImage.src = '../img/alnada.png'; // Path to light mode logo image
-  setTimeout(() => {
+  const currentFileName = window.location.pathname.split('/').pop();
+
+  if (currentFileName === 'index.html' || currentFileName === 'index_AR.html') {
+    logoImage.src = './img/alnada.png'; // Path for index files
+  } else {
+    logoImage.src = '../img/alnada.png'; // Path for other files
+  }  setTimeout(() => {
     container.classList.add("shadow-light");
     // Change the icon to the sun if it's not already set
     themeIcon.classList.remove("fa-moon", "change");
@@ -110,7 +119,10 @@ function setDark() {
   h5Elements.forEach(function(h5) {
        h5.style.color = '#4E9CAF'; // Remove the inline style to revert to default
   });
-
+  const h3Elements = document.querySelectorAll('h3');
+  h3Elements.forEach(function(h3) {
+       h3.style.color = '#EFF5FF'; // Remove the inline style to revert to default
+  });
   const containerFluids = document.querySelectorAll('.container-fluid');
   containerFluids.forEach(function(container) {
       if (container.classList.contains('bg-primary')) {
@@ -120,8 +132,13 @@ function setDark() {
   });
 
   const logoImage = document.querySelector('.logo'); // Ensure the class 'logo' matches your HTML
-  logoImage.src = '../img/alnadadr.png'; // Path to dark mode logo image
-  setTimeout(() => {
+  const currentFileName = window.location.pathname.split('/').pop();
+
+  if (currentFileName === 'index.html' || currentFileName === 'index_AR.html') {
+    logoImage.src = './img/alnadadr.png'; // Path for index files
+  } else {
+    logoImage.src = '../img/alnadadr.png'; // Path for other files
+  }  setTimeout(() => {
     container.classList.add("shadow-dark");
     // Change the icon to the moon
     themeIcon.classList.remove("fa-sun", "change");
