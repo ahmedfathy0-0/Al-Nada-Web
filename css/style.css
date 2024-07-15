@@ -418,6 +418,8 @@ div.d-flex.pt-2 a:last-child {
     grid-gap: 4px; /* Adjust the gap between images */
     width: 100%; /* Ensures the container fits the card header */
     height: 100%; /* Adjust based on your preference */
+    background: white;
+
 }
 
 .card-header .image-container img {
