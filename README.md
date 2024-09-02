@@ -20,7 +20,7 @@ Al Nada Scientific Office specializes in providing top-notch scientific products
 - **JavaScript**: Interactive and dynamic user experiences.
 
 ## 🌐 Website
-Check out the live website: [alnadascientific.com](http://alnadascientific.com)
+Check out the live website: [www.alnadascientific.com](http://alnadascientific.com)
 
 ## 📦 Installation
 No installation required! The website is fully live at the provided URL. Simply visit and explore.
