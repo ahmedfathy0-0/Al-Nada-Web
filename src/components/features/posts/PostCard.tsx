@@ -99,7 +99,7 @@ export function PostCard({
             </div>
             
             {/* EN */}
-            <div className="ltr:block rtl:hidden">
+            <div className="block rtl:hidden">
               <h3
                 className={cn(
                   "text-xl font-bold mb-3 line-clamp-2 transition-colors duration-300",
@@ -121,7 +121,7 @@ export function PostCard({
             </div>
 
             {/* AR */}
-            <div className="rtl:block ltr:hidden text-right" dir="rtl">
+            <div className="hidden rtl:block text-right" dir="rtl">
               <h3
                 className={cn(
                   "text-xl font-bold mb-3 line-clamp-2 transition-colors duration-300",
