@@ -4,7 +4,7 @@ import { PARTNERS } from "@/constants/partners";
 import { getPosts } from "@/lib/api";
 
 const BASE_URL = "https://alnadascientific.com";
-export const dynamic = "force-static";
+export const revalidate = 3600; // Revalidate sitemap every hour
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routes = [
