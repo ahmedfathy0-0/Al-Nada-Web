@@ -31,15 +31,27 @@ export function PostCard({
     }
   );
 
-  // Strip basic markdown and HTML for the excerpt
+  // English Excerpt
   const plainText = post.body
     .replace(/<[^>]+>/g, '') // Strip HTML
     .replace(/^#+\s+/gm, '') // Strip markdown headings
-    .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1') // Replace markdown links with just their text
+    .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1') // Replace markdown links
     .replace(/[*_~`>]/g, '') // Strip formatting characters
     .replace(/\s+/g, ' ') // Collapse whitespace
     .trim();
   const excerpt = plainText.length > 120 ? plainText.substring(0, 120) + "..." : plainText;
+
+  // Arabic Excerpt (fallback to English)
+  const plainTextAr = post.bodyAr
+    ? post.bodyAr
+        .replace(/<[^>]+>/g, '')
+        .replace(/^#+\s+/gm, '')
+        .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1')
+        .replace(/[*_~`>]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+    : plainText;
+  const excerptAr = plainTextAr.length > 120 ? plainTextAr.substring(0, 120) + "..." : plainTextAr;
 
   return (
     <motion.div
@@ -52,7 +64,7 @@ export function PostCard({
       <Link 
         href={`/posts/${post.id}`} 
         className="flex flex-col flex-1"
-        aria-label={`${t.readArticle}: ${post.title}`}
+        aria-label={`${t.readArticle}: ${post.titleAr || post.title}`}
       >
         <div
           className={cn(
@@ -85,24 +97,50 @@ export function PostCard({
             >
               {displayDate}
             </div>
-            <h3
-              className={cn(
-                "text-xl font-bold mb-3 line-clamp-2 transition-colors duration-300",
-                isDark
-                  ? "text-white group-hover:text-primary-light"
-                  : "text-[#0a1a4f] group-hover:text-primary"
-              )}
-            >
-              {post.title}
-            </h3>
-            <p
-              className={cn(
-                "text-sm mb-6 flex-1 line-clamp-3 leading-relaxed",
-                isDark ? "text-gray-400" : "text-[#4a6fa5]"
-              )}
-            >
-              {excerpt}
-            </p>
+            
+            {/* EN */}
+            <div className="ltr:block rtl:hidden">
+              <h3
+                className={cn(
+                  "text-xl font-bold mb-3 line-clamp-2 transition-colors duration-300",
+                  isDark
+                    ? "text-white group-hover:text-primary-light"
+                    : "text-[#0a1a4f] group-hover:text-primary"
+                )}
+              >
+                {post.title}
+              </h3>
+              <p
+                className={cn(
+                  "text-sm mb-6 flex-1 line-clamp-3 leading-relaxed",
+                  isDark ? "text-gray-400" : "text-[#4a6fa5]"
+                )}
+              >
+                {excerpt}
+              </p>
+            </div>
+
+            {/* AR */}
+            <div className="rtl:block ltr:hidden text-right" dir="rtl">
+              <h3
+                className={cn(
+                  "text-xl font-bold mb-3 line-clamp-2 transition-colors duration-300",
+                  isDark
+                    ? "text-white group-hover:text-primary-light"
+                    : "text-[#0a1a4f] group-hover:text-primary"
+                )}
+              >
+                {post.titleAr || post.title}
+              </h3>
+              <p
+                className={cn(
+                  "text-sm mb-6 flex-1 line-clamp-3 leading-relaxed",
+                  isDark ? "text-gray-400" : "text-[#4a6fa5]"
+                )}
+              >
+                {excerptAr}
+              </p>
+            </div>
 
             <div
               className={cn(

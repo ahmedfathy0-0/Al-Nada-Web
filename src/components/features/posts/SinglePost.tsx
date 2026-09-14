@@ -121,30 +121,62 @@ export function SinglePost({ post }: { post: Post }) {
               {displayDate}
             </time>
 
-            <h1
-              className={cn(
-                "text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-10 leading-tight",
-                isDark ? "text-white" : "text-[#0a1a4f]"
-              )}
-            >
-              {post.title}
-            </h1>
-
-            {/* GitHub Markdown Wrapper */}
-            <div 
-              data-theme={isDark ? "dark" : "light"}
-              className="markdown-body !bg-transparent !text-inherit"
-              style={{
-                backgroundColor: 'transparent',
-                color: isDark ? '#e5e7eb' : '#0a1a4f',
-              }}
-            >
-              <ReactMarkdown 
-                remarkPlugins={[remarkGfm]} 
-                rehypePlugins={[rehypeRaw]}
+            {/* English Version */}
+            <div className="ltr:block rtl:hidden">
+              <h1
+                className={cn(
+                  "text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-10 leading-tight",
+                  isDark ? "text-white" : "text-[#0a1a4f]"
+                )}
               >
-                {rawMarkdown}
-              </ReactMarkdown>
+                {post.title}
+              </h1>
+
+              {/* GitHub Markdown Wrapper */}
+              <div 
+                data-theme={isDark ? "dark" : "light"}
+                className="markdown-body !bg-transparent !text-inherit"
+                style={{
+                  backgroundColor: 'transparent',
+                  color: isDark ? '#e5e7eb' : '#0a1a4f',
+                }}
+              >
+                <ReactMarkdown 
+                  remarkPlugins={[remarkGfm]} 
+                  rehypePlugins={[rehypeRaw]}
+                >
+                  {rawMarkdown}
+                </ReactMarkdown>
+              </div>
+            </div>
+
+            {/* Arabic Version */}
+            <div className="rtl:block ltr:hidden" dir="rtl">
+              <h1
+                className={cn(
+                  "text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-10 leading-tight text-right",
+                  isDark ? "text-white" : "text-[#0a1a4f]"
+                )}
+              >
+                {post.titleAr || post.title}
+              </h1>
+
+              {/* GitHub Markdown Wrapper */}
+              <div 
+                data-theme={isDark ? "dark" : "light"}
+                className="markdown-body !bg-transparent !text-inherit text-right"
+                style={{
+                  backgroundColor: 'transparent',
+                  color: isDark ? '#e5e7eb' : '#0a1a4f',
+                }}
+              >
+                <ReactMarkdown 
+                  remarkPlugins={[remarkGfm]} 
+                  rehypePlugins={[rehypeRaw]}
+                >
+                  {post.bodyAr ? unescapeHtml(post.bodyAr) : rawMarkdown}
+                </ReactMarkdown>
+              </div>
             </div>
 
             {post.image2Url && (

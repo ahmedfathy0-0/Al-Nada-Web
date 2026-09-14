@@ -11,7 +11,9 @@ function getRequiredApiBase() {
 export interface Post {
   id: string;
   title: string;
+  titleAr: string | null;
   body: string;
+  bodyAr: string | null;
   image1Url: string | null;
   image1Id: string | null;
   image2Url: string | null;
