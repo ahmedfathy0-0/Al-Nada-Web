@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://alnadascientific.com/sitemap.xml

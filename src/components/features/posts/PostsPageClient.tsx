@@ -6,19 +6,27 @@ import { getPosts } from "@/lib/api";
 import { Loader2 } from "lucide-react";
 import { PostsList } from "./PostsList";
 
-export function PostsPageClient() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState(true);
+interface PostsPageClientProps {
+  initialPosts?: Post[];
+}
+
+export function PostsPageClient({ initialPosts }: PostsPageClientProps) {
+  const [posts, setPosts] = useState<Post[]>(initialPosts ?? []);
+  const [loading, setLoading] = useState(!initialPosts || initialPosts.length === 0);
 
   useEffect(() => {
+    // Always refresh from API on the client to pick up posts added since the last static build
     getPosts()
       .then(setPosts)
       .catch((error) => {
         console.error(error);
-        setPosts([]);
+        // Keep initialPosts if the client-side fetch fails
+        if (!initialPosts || initialPosts.length === 0) {
+          setPosts([]);
+        }
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (loading) {
     return (

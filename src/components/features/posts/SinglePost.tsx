@@ -111,14 +111,15 @@ export function SinglePost({ post }: { post: Post }) {
           )}
 
           <div className="p-8 md:p-12 lg:p-16">
-            <div
+            <time
+              dateTime={new Date(post.createdAt).toISOString()}
               className={cn(
-                "text-sm font-semibold uppercase tracking-wider mb-6",
+                "text-sm font-semibold uppercase tracking-wider mb-6 block",
                 isDark ? "text-primary-light" : "text-primary"
               )}
             >
               {displayDate}
-            </div>
+            </time>
 
             <h1
               className={cn(
